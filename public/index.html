@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+</head>
+
+<body class='container'>
+
+    <header class="jumbotron jumbotron-fluid text-center">
+        <h3>Budget Tracker</h3>
+    </header>
+
+    <section class='row total-area justify-content-center'>
+        <label class='form-label' for="balance">Balance</label>
+        <h4 id='balance'></h4>
+    </section>
+    <hr>
+
+    <section class='row input-area justify-content-center'>
+        <form action="/api/entry" method="POST">
+            <div class='form-group form-inline'>
+                <label class='form-label' for="description">Description</label>
+                <input id="description" class="form-control" type="text" name='desc' placeholder="Description" size="30">
+            </div>
+            <div class='form-group form-inline'>
+                <label class='form-label' for="amount">Amount</label>
+                <input id="amount" class="form-control" type="number" name='amount' step="any" placeholder="0000.00" min='any' size="10">
+            </div>
+            <div class='form-group text-center'>
+                <button id='submit' type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </section>
+    <hr>
+
+    <section class='row display-area justify-content-center'>
+        <div class='col-4 text-left'>
+            <ul class='ledger'>
+                <h5>Description</h5>
+                <li class='ledger-item'>
+
+                </li>
+            </ul>
+
+        </div>        
+        <div class='col-4 text-left'>
+            <ul class='ledger'>
+                <h5>Amount</h5>
+                <li class='ledger-item'>
+
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/scripts/ledger.js"></script>
+    <script src="/scripts/index.js"></script>
+</body>
+
+</html>

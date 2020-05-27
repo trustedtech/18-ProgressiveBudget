@@ -1,0 +1,38 @@
+body {
+    background-color: azure;
+}
+
+.jumbotron {
+    background-color: steelblue;
+    color: whitesmoke;
+    padding: 25px 0;
+    margin-bottom: 0;
+}
+
+section {
+    margin: 40px 0;
+}
+
+.total-area h4 {
+    font-weight: bold;
+}
+
+.input-area {
+
+}
+
+.display-area {
+
+}
+
+.ledger {
+
+}
+
+.ledger-item {
+
+}
+
+.form-label {
+    margin-right: 20px;
+}
