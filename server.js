@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 
 const mongoose = require('mongoose');
-const Ledger = require("../models");
+const Entry = require('./models');
 const logger = require('morgan');
 const compression = require('compression');
 
@@ -19,7 +19,27 @@ mongoose.connect('mongodb://localhost/budget', {
     useFindAndModify: false
 });
 
-// routes here
+app.get('/api/entry', (req, res) => {
+    Entry.find({})
+        .sort( { date: -1 })
+        .then( data => res.json(data) )
+        .catch( err => res.json(err) )
+    ;
+});
+
+app.post('/api/entry', ( {body}, res) => {
+    Entry.create(body)
+        .then( data => res.json(data) )
+        .catch( err => res.json(err) )
+    ;
+});
+
+app.post('/api/entry/bulk', ( {body}, res) => {
+    Entry.insertMany(body)
+        .then( data => res.json(data) )
+        .catch( err => res.json(err) )
+    ;
+});
 
 app.listen(PORT, () => {
     console.log(`Server is listening on ${PORT}`);

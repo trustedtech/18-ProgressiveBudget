@@ -1,11 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ledgerSchema = new Schema({
+const entrySchema = new Schema({
 
-    
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    desc: {
+        type: String,
+        trim: true,
+        required: "Description is required"
+    },
+    amount: {
+        type: Number,
+        required: "Amount is required"
+    }  
+         
 });    
 
-const Ledger = mongoose.model('Ledger', ledgerSchema);
+const Entry = mongoose.model('Entry', entrySchema);
 
-module.exports = Ledger;
+module.exports = Entry;
